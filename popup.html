@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>GTM Migrate</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="brand-mark" aria-hidden="true">GTM</div>
+        <div>
+          <h1>GTM Migrate</h1>
+          <p>Review before you publish.</p>
+        </div>
+      </header>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+      <section id="auth-view" class="card auth-card">
+        <h2>Connect Google Tag Manager</h2>
+        <p>Sign in to review workspace changes and their impact with read-only access.</p>
+        <button id="sign-in" class="button button-primary" type="button">Sign in with Google</button>
+      </section>
+
+      <section id="browser-view" hidden>
+        <div class="section-heading">
+          <div>
+            <h2>Source workspace</h2>
+            <p>Select the unpublished workspace you want to review.</p>
+          </div>
+          <button id="sign-out" class="button button-quiet" type="button">Sign out</button>
+        </div>
+
+        <div class="card field-stack">
+          <label>
+            <span>Account</span>
+            <select id="account" disabled><option value="">Select an account</option></select>
+          </label>
+          <label>
+            <span>Container</span>
+            <select id="container" disabled><option value="">Select a container</option></select>
+          </label>
+          <label>
+            <span>Workspace</span>
+            <select id="workspace" disabled><option value="">Select a workspace</option></select>
+          </label>
+          <button id="review-workspace" class="button button-primary" type="button" disabled>Review workspace changes</button>
+          <div class="legacy-action">
+            <span>Tag dependency export</span>
+            <button id="load-workspace" class="button button-secondary" type="button" disabled>Load tags</button>
+          </div>
+        </div>
+
+        <section id="workspace-view" class="workspace-section" hidden>
+          <div class="section-heading">
+            <div>
+              <h2>Tags</h2>
+              <p id="tag-count"></p>
+            </div>
+          </div>
+          <label class="search-field">
+            <span class="sr-only">Search tags</span>
+            <input id="tag-search" type="search" placeholder="Search tags" autocomplete="off" />
+          </label>
+          <div id="tag-list" class="tag-list" role="radiogroup" aria-label="Tags"></div>
+          <button id="analyze" class="button button-primary" type="button" disabled>Analyze dependencies</button>
+        </section>
+
+        <section id="results-view" class="results-section" hidden>
+          <div class="section-heading">
+            <div>
+              <h2>Dependency results</h2>
+              <p id="selected-tag"></p>
+            </div>
+          </div>
+          <div id="dependency-results" class="dependency-results"></div>
+          <button id="export" class="button button-primary" type="button">Export migration package</button>
+        </section>
+      </section>
+
+      <footer>Read-only GTM access · Analysis stays in your browser</footer>
+    </main>
+    <script type="module" src="/src/popup/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Workspace Change Review · GTM Migrate</title>
+  </head>
+  <body>
+    <header class="tool-bar">
+      <div class="tool-bar-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">GTM</span>
+          <strong>GTM Migrate</strong>
+        </div>
+        <div class="context-path" aria-label="Selected GTM workspace">
+          <span id="source-context"></span><span class="context-separator" aria-hidden="true">/</span><strong id="workspace-name">Workspace</strong>
+        </div>
+        <div class="tool-meta">Baseline <code id="baseline-version">—</code></div>
+        <div class="tool-actions">
+          <button id="refresh" class="button button-secondary" type="button">Refresh</button>
+          <button id="export-review" class="button button-primary" type="button" hidden>Export review</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="review-shell">
+      <section class="review-intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Pre-publish review</p>
+          <h1 id="page-title">Workspace Change Review</h1>
+        </div>
+        <p>Compare unpublished workspace changes and see what they may affect.</p>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite">Reviewing workspace changes…</div>
+
+      <section id="review-content" hidden>
+        <p id="summary-sentence" class="sr-only"></p>
+        <div id="summary" class="status-strip" aria-label="Review status"></div>
+        <div id="baseline-note" class="baseline-note"></div>
+        <div id="conflict-note" class="conflict-note" hidden></div>
+
+        <section id="needs-review-section" class="queue-section" aria-labelledby="needs-review-heading">
+          <div class="queue-heading">
+            <h2 id="needs-review-heading">Needs review</h2>
+            <span id="needs-review-count" class="queue-count"></span>
+          </div>
+          <div id="elevated-state" class="review-state"></div>
+          <div id="needs-review-columns" class="change-columns" aria-hidden="true">
+            <span>Sev</span><span>Change</span><span>Type</span><span>Name</span><span>Impact</span>
+          </div>
+          <div id="needs-review-list" class="change-list"></div>
+        </section>
+
+        <section class="queue-section all-changes-section" aria-labelledby="all-changes-heading">
+          <div class="queue-heading queue-heading-with-controls">
+            <div><h2 id="all-changes-heading">All changes</h2><span id="all-changes-count" class="queue-count"></span></div>
+            <div id="change-filters" class="filters" aria-label="Filter changes"></div>
+          </div>
+          <div id="all-change-columns" class="change-columns" aria-hidden="true">
+            <span>Sev</span><span>Change</span><span>Type</span><span>Name</span><span>Impact</span>
+          </div>
+          <div id="empty-state" class="empty-state" hidden>
+            <h3>No pending workspace changes</h3>
+            <p>There is currently nothing to review in this workspace.</p>
+          </div>
+          <div id="filter-empty-state" class="filter-empty-state" hidden>No changes match this filter.</div>
+          <div id="change-list" class="change-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="privacy-footer">Read-only GTM access · Analysis stays in your browser</footer>
+    <script type="module" src="/src/review/main.ts"></script>
+  </body>
+</html>

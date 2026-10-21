@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "GTM Migrate",
+  "version": "0.2.3",
+  "description": "Review GTM workspace changes, dependencies, and blast radius before publishing.",
+  "minimum_chrome_version": "105",
+  "action": {
+    "default_title": "GTM Migrate",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["identity"],
+  "host_permissions": ["https://tagmanager.googleapis.com/*"],
+  "oauth2": {
+    "client_id": "YOUR_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/tagmanager.readonly"]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
